@@ -836,6 +836,7 @@ var __vue_render__ = function() {
             _obj$1)
         },
         _vm._l(_vm.pool, function(view) {
+          var _obj;
           return _c(
             "div",
             {
@@ -843,14 +844,20 @@ var __vue_render__ = function() {
               staticClass: "vue-recycle-scroller__item-view",
               class: { hover: _vm.hoverKey === view.nr.key },
               style: _vm.ready
-                ? {
-                    transform:
-                      "translate" +
-                      (_vm.direction === "vertical" ? "Y" : "X") +
-                      "(" +
-                      view.position +
-                      "px)"
-                  }
+                ? view.item.modal
+                  ? ((_obj = {}),
+                    (_obj[_vm.direction === "vertical" ? "top" : "left"] =
+                      view.position + "px"),
+                    (_obj.willChange = "unset"),
+                    _obj)
+                  : {
+                      transform:
+                        "translate" +
+                        (_vm.direction === "vertical" ? "Y" : "X") +
+                        "(" +
+                        view.position +
+                        "px)"
+                    }
                 : null,
               on: {
                 mouseenter: function($event) {
@@ -1539,7 +1546,7 @@ function registerComponents(Vue, prefix) {
 
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "1.0.10",
+  version: "1.1.0",
   install: function install(Vue, options) {
     var finalOptions = Object.assign({}, {
       installComponents: true,
