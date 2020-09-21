@@ -2007,7 +2007,7 @@
 
   var plugin$2 = {
     // eslint-disable-next-line no-undef
-    version: "1.1.1",
+    version: "1.1.2",
     install: function install(Vue, options) {
       var finalOptions = Object.assign({}, {
         installComponents: true,
